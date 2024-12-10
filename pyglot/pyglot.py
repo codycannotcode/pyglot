@@ -43,7 +43,17 @@ def commandline():
     source = tokenize.untokenize(
             list(translate_code(open(file_path, encoding='utf-8').readline, translations)))
 
-    code = compile(source, file_path, "exec")
+    try:
+        code = compile(source, file_path, "exec")
+    except Exception as e:
+        print(e)
+        exit()
+
+    try:
+        runpy._run_module_code(code, mod_name="__main__")
+    except Exception as e:
+        print(e)
+        exit()
 
 def locatexml(filename, searchpath):
     for root, dirs, files in os.walk(searchpath):
