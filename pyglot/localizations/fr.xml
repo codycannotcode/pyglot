@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localization>
+    <!-- Keywords -->
+    <term key="if">si</term>
+    <term key="else">sinon</term>
+    <term key="elif">si_sinon</term>
+    <term key="for">pour</term>
+    <term key="in">dans</term>
+    <term key="while">tant_que</term>
+    <term key="return">retourner</term>
+    <term key="def">définir</term>
+    <term key="class">classe</term>
+    <term key="import">importer</term>
+    <term key="from">de</term>
+    <term key="as">comme</term>
+    <term key="try">essayer</term>
+    <term key="except">sauf</term>
+    <term key="finally">finalement</term>
+    <term key="with">avec</term>
+    <term key="pass">passer</term>
+    <term key="break">interrompre</term>
+    <term key="continue">continuer</term>
+    <term key="True">Vrai</term>
+    <term key="False">Faux</term>
+    <term key="None">Aucun</term>
+    <term key="and">et</term>
+    <term key="or">ou</term>
+    <term key="not">non</term>
+    <term key="lambda">lambda</term>
+    <term key="global">global</term>
+    <term key="nonlocal">nonlocal</term>
+
+    <!-- Built-in Functions -->
+    <term key="abs">valeur absolue</term>
+    <term key="all">tout</term>
+    <term key="any">quelconque</term>
+    <term key="bin">binaire</term>
+    <term key="bool">booléen</term>
+    <term key="callable">appelable</term>
+    <term key="chr">caractère</term>
+    <term key="dict">dictionnaire</term>
+    <term key="enumerate">énumérer</term>
+    <term key="filter">filtrer</term>
+    <term key="float">flottant</term>
+    <term key="format">formater</term>
+    <term key="getattr">obtenir_attribut</term>
+    <term key="hasattr">a_attribut</term>
+    <term key="hash">hachage</term>
+    <term key="hex">hexadécimal</term>
+    <term key="input">entrée</term>
+    <term key="int">entier</term>
+    <term key="isinstance">est_instance</term>
+    <term key="len">longueur</term>
+    <term key="list">liste</term>
+    <term key="map">appliquer</term>
+    <term key="max">maximum</term>
+    <term key="min">minimum</term>
+    <term key="next">suivant</term>
+    <term key="open">ouvrir</term>
+    <term key="ord">ordinal</term>
+    <term key="pow">puissance</term>
+    <term key="print">imprimer</term>
+    <term key="range">intervalle</term>
+    <term key="reversed">inversé</term>
+    <term key="round">arrondir</term>
+    <term key="set">ensemble</term>
+    <term key="sorted">trié</term>
+    <term key="str">chaîne</term>
+    <term key="sum">somme</term>
+    <term key="tuple">n-uplet</term>
+    <term key="type">type</term>
+    <term key="zip">fusionner</term>
+</localization>

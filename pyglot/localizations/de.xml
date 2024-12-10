@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localization>
+    <term key="if">wenn</term>
+    <term key="else">sonst</term>
+    <term key="for">für</term>
+    <term key="while">während</term>
+    <term key="return">zurückgeben</term>
+    <term key="def">definieren</term>
+    <term key="class">Klasse</term>
+    <term key="import">importieren</term>
+    <term key="from">aus</term>
+    <term key="as">als</term>
+    <term key="try">versuchen</term>
+    <term key="except">außer</term>
+    <term key="finally">schließlich</term>
+    <term key="with">mit</term>
+    <term key="pass">passieren</term>
+    <term key="break">abbrechen</term>
+    <term key="continue">fortsetzen</term>
+    <term key="True">Wahr</term>
+    <term key="False">Falsch</term>
+    <term key="None">Nichts</term>
+    <term key="and">und</term>
+    <term key="or">oder</term>
+    <term key="not">nicht</term>
+    <term key="lambda">lambda</term>
+    <term key="global">global</term>
+    <term key="nonlocal">nichtlokal</term>
+</localization>
