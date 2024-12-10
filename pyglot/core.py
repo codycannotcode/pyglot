@@ -4,7 +4,7 @@ import re
 
 lang_re = re.compile(r'lang[=:]\s*([-\w.]+)')
 
-def translate_code(readline, translations):
+def translate_code(readline, translations=None):
     # Specify which language using a magic comment
     # Searches up to 3 consecutive comments at the top of the file
     # Use the same style of magic commment for python's encoding
@@ -25,7 +25,7 @@ def translate_code(readline, translations):
     #         break
 
     for tok, name, _,_,_ in tokenize.generate_tokens(readline):
-        if tok == tokenize.NAME and name in translations:
+        if translations and tok == tokenize.NAME and name in translations:
             yield tokenize.NAME, translations[name]
         else:
             yield tok, name
