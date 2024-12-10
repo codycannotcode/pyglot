@@ -5,6 +5,7 @@ import tokenize
 from loadxml import translations_from_xml
 import runpy
 from core import translate_code
+import traceback
         
 def commandline():
     """
@@ -36,7 +37,7 @@ def commandline():
     if xml_file_path:
         translations = translations_from_xml(xml_file_path)
     else:
-        print("Could not locate " + language + ".xml")
+        print("Could not locate localizations\\" + language + ".xml")
         print("Attempted to search " + xml_file_path)
         exit(1)
     
@@ -46,13 +47,13 @@ def commandline():
     try:
         code = compile(source, file_path, "exec")
     except Exception as e:
-        print(e)
+        traceback.print_exc(limit=0 - len(traceback.extract_tb(e.__traceback__)) + 1)
         exit()
 
     try:
         runpy._run_module_code(code, mod_name="__main__")
     except Exception as e:
-        print(e)
+        traceback.print_exc(limit=0-len(traceback.extract_tb(e.__traceback__)) + 3)
         exit()
 
 def locatexml(filename, searchpath):
