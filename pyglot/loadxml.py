@@ -1,8 +1,8 @@
 import xml.etree.ElementTree as ET
 
-def translations_from_xml(file):
+def translations_from_xml(file_path):
     # Load the XML tree
-    root = ET.parse(file)
+    root = ET.parse(file_path)
 
     # Create the dictionary
     keyword = {}

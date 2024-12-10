@@ -33,7 +33,7 @@ def commandline():
     # Get the path of the expected xml file, and see if it exists. 
     xml_file_path = os.path.join(os.getcwd(), 'localizations', f'{language}.xml')
     if os.path.exists(xml_file_path):
-        translations = translations_from_xml(open(xml_file_path, 'r'))
+        translations = translations_from_xml(xml_file_path)
     
     source = tokenize.untokenize(
             list(translate_code(open(file_path, encoding='utf-8').readline, translations)))
