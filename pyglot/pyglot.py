@@ -41,20 +41,20 @@ def commandline():
         print("Attempted to search " + xml_file_path)
         exit(1)
     
+    sourcefile = open(file_path, encoding='utf-8')
     source = tokenize.untokenize(
-            list(translate_code(open(file_path, encoding='utf-8').readline, translations)))
+            list(translate_code(sourcefile.readline, translations)))
+    sourcefile.close()
 
     try:
         code = compile(source, file_path, "exec")
     except Exception as e:
-        #traceback.print_exc(limit=0 - len(traceback.extract_tb(e.__traceback__)) + 1)
         traceback.print_exception(sys.exception(), limit= -len(traceback.extract_tb(e.__traceback__)) + 1, file=None, chain=True, colorize=True)
         sys.exit()
 
     try:
         runpy._run_module_code(code, mod_name="__main__")
     except Exception as e:
-        #traceback.print_exc(limit=0-len(traceback.extract_tb(e.__traceback__)) + 3)
         traceback.print_exception(sys.exception(), limit= -len(traceback.extract_tb(e.__traceback__)) + 3, file=None, chain=True, colorize=True)
         sys.exit()
 
