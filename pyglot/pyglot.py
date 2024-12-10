@@ -31,16 +31,25 @@ def commandline():
         language = extensions[0][1:]
     
     # Get the path of the expected xml file, and see if it exists. 
-    xml_file_path = os.path.join(os.getcwd(), 'localizations', f'{language}.xml')
-    if os.path.exists(xml_file_path):
+    
+    xml_file_path = locatexml(f'{language}.xml', os.getcwd())
+    if xml_file_path:
         translations = translations_from_xml(xml_file_path)
+    else:
+        print("Could not locate " + language + ".xml")
+        print("Attempted to search " + xml_file_path)
+        exit(1)
     
     source = tokenize.untokenize(
             list(translate_code(open(file_path, encoding='utf-8').readline, translations)))
 
     code = compile(source, file_path, "exec")
 
-    runpy._run_module_code(code, mod_name="__main__")
+def locatexml(filename, searchpath):
+    for root, dirs, files in os.walk(searchpath):
+        if filename in files and root.endswith("\\localizations"):
+            return os.path.join(root, filename)
+    return None
 
 if __name__=="__main__":
     commandline()
