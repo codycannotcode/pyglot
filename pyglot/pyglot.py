@@ -47,14 +47,16 @@ def commandline():
     try:
         code = compile(source, file_path, "exec")
     except Exception as e:
-        traceback.print_exc(limit=0 - len(traceback.extract_tb(e.__traceback__)) + 1)
-        exit()
+        #traceback.print_exc(limit=0 - len(traceback.extract_tb(e.__traceback__)) + 1)
+        traceback.print_exception(sys.exception(), limit= -len(traceback.extract_tb(e.__traceback__)) + 1, file=None, chain=True, colorize=True)
+        sys.exit()
 
     try:
         runpy._run_module_code(code, mod_name="__main__")
     except Exception as e:
-        traceback.print_exc(limit=0-len(traceback.extract_tb(e.__traceback__)) + 3)
-        exit()
+        #traceback.print_exc(limit=0-len(traceback.extract_tb(e.__traceback__)) + 3)
+        traceback.print_exception(sys.exception(), limit= -len(traceback.extract_tb(e.__traceback__)) + 3, file=None, chain=True, colorize=True)
+        sys.exit()
 
 def locatexml(filename, searchpath):
     for root, dirs, files in os.walk(searchpath):
