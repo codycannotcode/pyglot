@@ -18,10 +18,10 @@ def commandline():
     file_path = sys.argv[1]
 
     if not os.path.exists(file_path):
-        print(f"twpy: file '{file_path}' does not exist")
+        print(f"{os.getcwd()}: can't open file '{os.getcwd()}\\{file_path}': No such file or directory")
         sys.exit(1)
 
-    sys.path[0] = os.path.dirname(os.path.join(os.getcwd(), file_path))
+    #sys.path[0] = os.path.dirname(os.path.join(os.getcwd(), file_path))
 
     # Get language based off of the file extension. For example, script.fr.py will look for fr.xml
     extensions = pathlib.Path(file_path).suffixes[-2:]
