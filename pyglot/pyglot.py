@@ -37,19 +37,20 @@ def commandline():
     if xml_file_path:
         translations = translations_from_xml(xml_file_path)
     else:
-        print("Could not locate localizations\\" + language + ".xml")
-        print("Attempted to search " + xml_file_path)
+        print(f'Could not locate {os.path.join('localizations', f'{language}.xml')}')
+        # print("Attempted to search " + xml_file_path)
         exit(1)
+
     
-    sourcefile = open(file_path, encoding='utf-8')
-    source = tokenize.untokenize(
-            list(translate_code(sourcefile.readline, translations)))
-    sourcefile.close()
+    # Convert the source code back into valid python
+
+    with open(file_path, encoding='utf-8') as f:
+        source = tokenize.untokenize(list(translate_code(f.readline, translations)))
 
     try:
         code = compile(source, file_path, "exec")
     except Exception as e:
-        traceback.print_exception(sys.exception(), limit= -len(traceback.extract_tb(e.__traceback__)) + 1, file=None, chain=True, colorize=True)
+        traceback.print_exception(sys.exception(), limit= -len(traceback.extract_tb(e.__traceback__)) + 1, file=None, chain=True)
         sys.exit()
 
     sys.argv = sys.argv[1:]
@@ -58,12 +59,12 @@ def commandline():
             mod_globals = temp_module.module.__dict__
             runpy._run_code(code, mod_globals, mod_name="__main__")
     except Exception as e:
-        traceback.print_exception(sys.exception(), limit= -len(traceback.extract_tb(e.__traceback__)) + 3, file=None, chain=True, colorize=True)
+        traceback.print_exception(sys.exception(), limit= -len(traceback.extract_tb(e.__traceback__)) + 3, file=None, chain=True)
         sys.exit()
 
 def locatexml(filename, searchpath):
     for root, dirs, files in os.walk(searchpath):
-        if filename in files and root.endswith("\\localizations"):
+        if filename in files and root.endswith("\\localizations"): # this only works on windows, fix later
             return os.path.join(root, filename)
     return None
 
