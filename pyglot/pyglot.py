@@ -9,9 +9,9 @@ import traceback
         
 def commandline():
     """
-    usage: pyglot file.{language}.py
+    usage: pyglot file.{language}.py {args}
     """
-    if len(sys.argv) != 2:
+    if len(sys.argv) == 1:
         print(commandline.__doc__)
         sys.exit(1)
 
@@ -52,8 +52,11 @@ def commandline():
         traceback.print_exception(sys.exception(), limit= -len(traceback.extract_tb(e.__traceback__)) + 1, file=None, chain=True, colorize=True)
         sys.exit()
 
+    sys.argv = sys.argv[1:]
     try:
-        runpy._run_module_code(code, mod_name="__main__")
+        with runpy._TempModule("__main__") as temp_module:
+            mod_globals = temp_module.module.__dict__
+            runpy._run_code(code, mod_globals, mod_name="__main__")
     except Exception as e:
         traceback.print_exception(sys.exception(), limit= -len(traceback.extract_tb(e.__traceback__)) + 3, file=None, chain=True, colorize=True)
         sys.exit()
