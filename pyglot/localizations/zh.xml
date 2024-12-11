@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localization>
+    <!-- Keywords -->
+    <term key="for">取</term>
+    <term key="in">在</term>
+    <term key="if">如果</term>
+    <term key="elif">否則如果</term>
+    <term key="else">否則</term>
+    <term key="and">且</term>
+
+    <!-- Built-in Functions -->
+    <term key="range">範圍</term>
+    <term key="print">印出</term>
+</localization>

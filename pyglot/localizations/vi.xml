@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localization>
+    <!-- Keywords -->
+    <term key="for">cho</term>
+    <term key="in">trong</term>
+    <term key="if">nếu</term>
+    <term key="elif">nếu_không</term>
+    <term key="else">khác</term>
+    <term key="and">và</term>
+
+    <!-- Built-in Functions -->
+    <term key="range">phạm_vi</term>
+    <term key="print">in</term>
+</localization>

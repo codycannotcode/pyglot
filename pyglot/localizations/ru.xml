@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localization>
+    <!-- Keywords -->
+    <term key="for">для</term>
+    <term key="in">в</term>
+    <term key="if">если</term>
+    <term key="elif">иначе_если</term>
+    <term key="else">иначе</term>
+    <term key="and">и</term>
+
+    <!-- Built-in Functions -->
+    <term key="range">диапазон</term>
+    <term key="print">вывести</term>
+</localization>

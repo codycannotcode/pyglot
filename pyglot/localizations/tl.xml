@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localization>
+    <!-- Keywords -->
+    <term key="for">para</term>
+    <term key="in">sa</term>
+    <term key="if">kung</term>
+    <term key="elif">kung_kasunod</term>
+    <term key="else">kung_hindi</term>
+    <term key="and">at</term>
+
+    <!-- Built-in Functions -->
+    <term key="range">saklaw</term>
+    <term key="print">iprinta</term>
+</localization>
