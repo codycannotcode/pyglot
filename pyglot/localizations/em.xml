@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localization>
+    <!-- Keywords -->
+    <term key="for">🔂</term>
+    <term key="in">⬇</term>
+    <term key="if">❔</term>
+    <term key="elif">❔↪</term>
+    <term key="else">↪</term>
+    <term key="and">🅰</term>
+
+    <!-- Built-in Functions -->
+    <term key="range">🔢</term>
+    <term key="print">🖨</term>
+</localization>
