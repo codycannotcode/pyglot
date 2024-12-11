@@ -32,18 +32,15 @@ def commandline():
         language = extensions[0][1:]
     
     # Get the path of the expected xml file, and see if it exists. 
-    
     xml_file_path = locatexml(f'{language}.xml', os.getcwd())
     if xml_file_path:
         translations = translations_from_xml(xml_file_path)
     else:
         print(f'Could not locate {os.path.join('localizations', f'{language}.xml')}')
-        # print("Attempted to search " + xml_file_path)
-        exit(1)
+        sys.exit(1)
 
     
     # Convert the source code back into valid python
-
     with open(file_path, encoding='utf-8') as f:
         source = tokenize.untokenize(list(translate_code(f.readline, translations)))
 
