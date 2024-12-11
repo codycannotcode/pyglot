@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localization>
+  <term key="for">に</term>
+  <term key="in">中</term>
+  <term key="if">もし</term>
+  <term key="elif">でなければ</term>
+  <term key="else">其れとも</term>
+  <term key="and">と</term>
+  
+  <term key="print">刷る</term>
+  <term key="range">距離</term>
+</localization>
