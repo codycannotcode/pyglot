@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localization>
+    <!-- Keywords -->
+    <term key="for">के_लिए</term>
+    <term key="in">में</term>
+    <term key="if">यदि</term>
+    <term key="elif">अन्य_यदि</term>
+    <term key="else">अन्यथा</term>
+    <term key="and">और</term>
+
+    <!-- Built-in Functions -->
+    <term key="range">सीमा</term>
+    <term key="print">प्रिंट</term>
+</localization>

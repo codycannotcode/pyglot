@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <localization>
     <!-- Keywords -->
-    <term key="for">cho</term>
+    <term key="for">if</term>
     <term key="in">trong</term>
     <term key="if">nếu</term>
     <term key="elif">nếu_không</term>
