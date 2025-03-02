@@ -48,7 +48,7 @@ def commandline():
         code = compile(source, file_path, "exec")
     except Exception as e:
         traceback.print_exception(sys.exception(), limit= -len(traceback.extract_tb(e.__traceback__)) + 1, file=None, chain=True)
-        sys.exit()
+        sys.exit(1)
 
     sys.argv = sys.argv[1:]
     try:
@@ -57,7 +57,7 @@ def commandline():
             runpy._run_code(code, mod_globals, mod_name="__main__")
     except Exception as e:
         traceback.print_exception(sys.exception(), limit= -len(traceback.extract_tb(e.__traceback__)) + 3, file=None, chain=True)
-        sys.exit()
+        sys.exit(1)
 
 def locatexml(filename, searchpath):
     for root, dirs, files in os.walk(searchpath):
@@ -66,4 +66,5 @@ def locatexml(filename, searchpath):
     return None
 
 if __name__=="__main__":
+    sys.path.append(os.getcwd())
     commandline()
