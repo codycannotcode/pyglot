@@ -1,4 +1,4 @@
-schema = {
+schema = {  # Only works with basic Latin characters, fix later
     "type": "object",
     
     "patternProperties": {
