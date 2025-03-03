@@ -1,0 +1,12 @@
+{
+    
+    "for": "para",
+    "in": "en",
+    "if": "si",
+    "elif": "sino_si",
+    "else": "sino",
+    "and": "y",
+
+    "range": "rango",
+    "print": "imprimir"
+}
