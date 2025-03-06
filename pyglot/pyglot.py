@@ -6,6 +6,7 @@ from loadxml import translations_from_xml
 import runpy
 from core import translate_code
 import traceback
+import pyglotimport
         
 def commandline():
     """
@@ -21,8 +22,6 @@ def commandline():
         print(f"{os.getcwd()}: can't open file '{os.getcwd()}\\{file_path}': No such file or directory")
         sys.exit(1)
 
-    #sys.path[0] = os.path.dirname(os.path.join(os.getcwd(), file_path))
-
     # Get language based off of the file extension. For example, script.fr.py will look for fr.xml
     extensions = pathlib.Path(file_path).suffixes[-2:]
     language = None
@@ -32,17 +31,10 @@ def commandline():
         language = extensions[0][1:]
     
     # Get the path of the expected xml file, and see if it exists. 
-    xml_file_path = locatexml(f'{language}.xml', os.getcwd())
-    if xml_file_path:
-        translations = translations_from_xml(xml_file_path)
-    else:
-        print(f'Could not locate {os.path.join('localizations', f'{language}.xml')}')
-        sys.exit(1)
-
+    translations = gettranslations(f'{language}.xml')
     
     # Convert the source code back into valid python
-    with open(file_path, encoding='utf-8') as f:
-        source = tokenize.untokenize(list(translate_code(f.readline, translations)))
+    source = translatetoen(file_path, translations)
 
     try:
         code = compile(source, file_path, "exec")
@@ -64,6 +56,21 @@ def locatexml(filename, searchpath):
         if filename in files and root.endswith("\\localizations"): # this only works on windows, fix later
             return os.path.join(root, filename)
     return None
+
+def gettranslations(filename):
+    xml_file_path = locatexml(filename, os.getcwd())
+    if xml_file_path:
+        translations = translations_from_xml(xml_file_path)
+    else:
+        print(f'Could not locate {os.path.join('localizations', f'{filename.split('.')[-2]}.xml')}')
+        sys.exit(1)
+    return translations
+
+def translatetoen(file_path, translations):
+    with open(file_path, encoding='utf-8') as f:
+        source = tokenize.untokenize(list(translate_code(f.readline, translations)))
+    return source
+
 
 if __name__=="__main__":
     sys.path.append(os.getcwd())
