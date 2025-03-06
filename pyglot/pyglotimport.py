@@ -21,8 +21,9 @@ class PyglotFinder:
         if not path:
             path = sys.path
         for entry in path:
-            if os.path.exists(filename):
-                return importlib.util.spec_from_file_location(fullname, filename, loader=PyglotLoader())
+            fullpath = entry + os.sep + filename
+            if os.path.exists(fullpath):
+                return importlib.util.spec_from_file_location(fullname, fullpath, loader=PyglotLoader())
         return None
 
 class PyglotLoader:
