@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<localization>
-    <!-- Keywords -->
-    <term key="for">para</term>
-    <term key="in">en</term>
-    <term key="if">si</term>
-    <term key="elif">sino_si</term>
-    <term key="else">sino</term>
-    <term key="and">y</term>
-
-    <!-- Built-in Functions -->
-    <term key="range">rango</term>
-    <term key="print">imprimir</term>
+<localization xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns="http://pyglot.com/schema"
+xsi:schemaLocation="http://pyglot.com/schema schema.xsd"
+>
+    <keywords>
+        <keyword key="for">para</keyword>
+    </keywords>
+    <functions>
+        <function name='print'>imprimer</function>
+    </functions>
 </localization>

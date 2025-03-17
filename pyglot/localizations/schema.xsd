@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+targetNamespace="http://pyglot.com/schema"
+xmlns="http://pyglot.com/schema"
+elementFormDefault="qualified">
+    <xs:element name="keyword">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:string">
+                    <xs:attribute name="key" use="required">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                                <xs:enumeration value="False"/>
+                                <xs:enumeration value="None"/>
+                                <xs:enumeration value="True"/>
+                                <xs:enumeration value="and"/>
+                                <xs:enumeration value="as"/>
+                                <xs:enumeration value="assert"/>
+                                <xs:enumeration value="async"/>
+                                <xs:enumeration value="await"/>
+                                <xs:enumeration value="break"/>
+                                <xs:enumeration value="class"/>
+                                <xs:enumeration value="continue"/>
+                                <xs:enumeration value="def"/>
+                                <xs:enumeration value="del"/>
+                                <xs:enumeration value="elif"/>
+                                <xs:enumeration value="else"/>
+                                <xs:enumeration value="except"/>
+                                <xs:enumeration value="finally"/>
+                                <xs:enumeration value="for"/>
+                                <xs:enumeration value="from"/>
+                                <xs:enumeration value="global"/>
+                                <xs:enumeration value="if"/>
+                                <xs:enumeration value="import"/>
+                                <xs:enumeration value="in"/>
+                                <xs:enumeration value="is"/>
+                                <xs:enumeration value="lambda"/>
+                                <xs:enumeration value="nonlocal"/>
+                                <xs:enumeration value="not"/>
+                                <xs:enumeration value="or"/>
+                                <xs:enumeration value="pass"/>
+                                <xs:enumeration value="raise"/>
+                                <xs:enumeration value="return"/>
+                                <xs:enumeration value="try"/>
+                                <xs:enumeration value="while"/>
+                                <xs:enumeration value="with"/>
+                                <xs:enumeration value="yield"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:attribute>                
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="keywords">
+        <xs:complexType>
+            <xs:all>
+                <xs:element ref="keyword" minOccurs="0"/>
+            </xs:all>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="function">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:string">
+                    <xs:attribute name="name" type="xs:string" use="required"/>
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="functions">
+        <xs:complexType>
+            <xs:all>
+                <xs:element ref="function" minOccurs="0"/>
+            </xs:all>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="localization">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="keywords"/>
+                <xs:element ref="functions"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
