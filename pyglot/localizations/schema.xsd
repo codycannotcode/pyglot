@@ -57,9 +57,9 @@ elementFormDefault="qualified">
 
     <xs:element name="keywords">
         <xs:complexType>
-            <xs:all>
-                <xs:element ref="keyword" minOccurs="0"/>
-            </xs:all>
+            <xs:choice>
+                <xs:element ref="keyword" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:choice>
         </xs:complexType>
     </xs:element>
 
@@ -75,9 +75,9 @@ elementFormDefault="qualified">
 
     <xs:element name="functions">
         <xs:complexType>
-            <xs:all>
-                <xs:element ref="function" minOccurs="0"/>
-            </xs:all>
+            <xs:choice>
+                <xs:element ref="function" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:choice>
         </xs:complexType>
     </xs:element>
 

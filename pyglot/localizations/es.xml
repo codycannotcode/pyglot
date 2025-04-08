@@ -4,9 +4,44 @@ xmlns="http://pyglot.com/schema"
 xsi:schemaLocation="http://pyglot.com/schema schema.xsd"
 >
     <keywords>
+        <keyword key="False">Falso</keyword>
+        <keyword key="None">Nulo</keyword>
+        <keyword key="True">Verdadero</keyword>
+        <keyword key="and">y</keyword>
+        <keyword key="as">como</keyword>
+        <keyword key="assert">afirmar</keyword>
+        <keyword key="async">asíncrono</keyword>
+        <keyword key="await">esperar</keyword>
+        <keyword key="break">romper</keyword>
+        <keyword key="class">clase</keyword>
+        <keyword key="continue">continuar</keyword>
+        <keyword key="def">definir</keyword>
+        <keyword key="del">eliminar</keyword>
+        <keyword key="elif">sino_si</keyword>
+        <keyword key="else">sino</keyword>
+        <keyword key="except">excepto</keyword>
+        <keyword key="finally">finalmente</keyword>
         <keyword key="for">para</keyword>
+        <keyword key="from">de</keyword>
+        <keyword key="global">global</keyword>
+        <keyword key="if">si</keyword>
+        <keyword key="import">importar</keyword>
+        <keyword key="in">en</keyword>
+        <keyword key="is">es</keyword>
+        <keyword key="lambda">lambda</keyword>
+        <keyword key="nonlocal">no local</keyword>
+        <keyword key="not">no</keyword>
+        <keyword key="or">o</keyword>
+        <keyword key="pass">pasar</keyword>
+        <keyword key="raise">lanzar</keyword>
+        <keyword key="return">retornar</keyword>
+        <keyword key="try">intentar</keyword>
+        <keyword key="while">mientras</keyword>
+        <keyword key="with">con</keyword>
+        <keyword key="yield">ceder</keyword>
     </keywords>
     <functions>
-        <function name='print'>imprimer</function>
+        <function name='print'>imprimir</function>
+        <function name='range'>rango</function>
     </functions>
 </localization>
