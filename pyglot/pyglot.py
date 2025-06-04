@@ -2,7 +2,7 @@ import sys
 import os
 import pathlib
 import tokenize
-from loadxml import translations_from_xml
+import loadxml
 import runpy
 from core import translate_code
 import traceback
@@ -51,16 +51,10 @@ def commandline():
         traceback.print_exception(sys.exception(), limit= -len(traceback.extract_tb(e.__traceback__)) + 3, file=None, chain=True)
         sys.exit(1)
 
-def locatexml(filename, searchpath):
-    for root, dirs, files in os.walk(searchpath):
-        if filename in files and root.endswith("\\localizations"): # this only works on windows, fix later
-            return os.path.join(root, filename)
-    return None
-
 def gettranslations(filename):
-    xml_file_path = locatexml(filename, os.getcwd())
+    xml_file_path = loadxml.locatexml(filename)
     if xml_file_path:
-        translations = translations_from_xml(xml_file_path)
+        translations = loadxml.translations_from_xml(xml_file_path)
     else:
         print(f'Could not locate {os.path.join('localizations', f'{filename.split('.')[-2]}.xml')}')
         sys.exit(1)
@@ -70,7 +64,6 @@ def translatetoen(file_path, translations):
     with open(file_path, encoding='utf-8') as f:
         source = tokenize.untokenize(list(translate_code(f.readline, translations)))
     return source
-
 
 if __name__=="__main__":
     sys.path.append(os.getcwd())

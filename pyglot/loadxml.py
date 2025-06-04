@@ -44,3 +44,9 @@ def translations_from_xml(file_path):
             translation_map[translation] = native
 
     return translation_map
+
+def locatexml(filename):
+    if localizations / filename not in [f for f in localizations.iterdir() if not f.is_dir()]:
+        return None
+    
+    return str(localizations / filename)
