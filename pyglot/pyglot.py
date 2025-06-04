@@ -46,6 +46,7 @@ def commandline():
         validate(instance=translations, schema=schema)
     except:
         print(f'Could not validate {os.path.join('localizations', f'{language}.json')}')
+        sys.exit(1)
 
     # Swap key, value to work properly with untokenize
     swappedtranslations = {value: key for key, value in translations.items()}
