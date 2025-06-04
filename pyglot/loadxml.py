@@ -4,6 +4,10 @@ import sys
 import os
 from pathlib import Path
 
+if __name__=="__main__":
+    print("This module is not meant to be directly executed")
+    exit(1)
+
 currpath = Path(os.path.realpath(__file__))
 if currpath.parent / 'localizations' not in [subdir for subdir in currpath.parent.iterdir() if subdir.is_dir()]:
     print("Could not locate " + str(currpath.parent / 'localizations'))
@@ -40,19 +44,3 @@ def translations_from_xml(file_path):
             translation_map[translation] = native
 
     return translation_map
-
-
-# def locatexml(filename, searchpath):
-#     for root, dirs, files in os.walk(searchpath):
-#         if filename in files and root.endswith("\\localizations"): # this only works on windows, fix later
-#             return os.path.join(root, filename)
-#     return None
-
-# def gettranslations(filename):
-#     xml_file_path = locatexml(filename, os.getcwd())
-#     if xml_file_path:
-#         translations = translations_from_xml(xml_file_path)
-#     else:
-#         print(f'Could not locate {os.path.join('localizations', f'{filename.split('.')[-2]}.xml')}')
-#         sys.exit(1)
-#     return translations
