@@ -10,7 +10,7 @@ import pyglotimport
         
 def commandline():
     """
-    usage: pyglot file.{language}.py {args}
+    usage: pyglot file.{language}_py {args}
     """
     if len(sys.argv) == 1:
         print(commandline.__doc__)
@@ -22,13 +22,16 @@ def commandline():
         print(f"{os.getcwd()}: can't open file '{os.getcwd()}\\{file_path}': No such file or directory")
         sys.exit(1)
 
-    # Get language based off of the file extension. For example, script.fr.py will look for fr.xml
-    extensions = pathlib.Path(file_path).suffixes[-2:]
+    # Get language based off of the file extension. For example, script.fr_py will look for fr.xml
+    extension = pathlib.Path(file_path).suffixes[-1:]
+    extension_components = extension[0].split('_')
     language = None
     translations = None
 
-    if len(extensions) == 2 and extensions[1] == '.py':
-        language = extensions[0][1:]
+    if len(extension_components) == 2 and extension_components[1] == 'py' and len(extension_components[0]) == 3:
+        language = extension_components[0][1:]
+    else:
+        exit(1)
     
     # Get the path of the expected xml file, and see if it exists. 
     translations = gettranslations(f'{language}.xml')
