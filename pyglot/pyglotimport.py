@@ -16,7 +16,7 @@ class PyglotFinder:
         if len(pyglotlanguage) != 2:
             return None
 
-        filename = pyglotfile.split('_')[0] + '.' + pyglotlanguage + '.py'
+        filename = pyglotfile.split('_')[0] + '.' + pyglotlanguage + '_py'
 
         if not path:
             path = sys.path
@@ -31,7 +31,7 @@ class PyglotLoader:
         return None  # Use default module creation
 
     def exec_module(self, module):
-        language = module.__spec__.origin.split('.')[-2]
+        language = module.__spec__.origin.split('.')[1].split('_')[0]
         translations = gettranslations(f'{language}.xml')
     
         code = translatetoen(module.__spec__.origin, translations)
