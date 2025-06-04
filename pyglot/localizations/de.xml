@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<localization>
-    <!-- Keywords -->
-    <term key="for">für</term>
-    <term key="in">in</term>
-    <term key="if">wenn</term>
-    <term key="elif">sonst_wenn</term>
-    <term key="else">sonst</term>
-    <term key="and">und</term>
-
-    <!-- Built-in Functions -->
-    <term key="range">bereich</term>
-    <term key="print">ausgeben</term>
+<localization xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns="http://pyglot.com/schema"
+xsi:schemaLocation="http://pyglot.com/schema schema.xsd"
+>
+    <keywords>
+        <keyword key="for">für</keyword>
+        <keyword key="in">in</keyword>
+        <keyword key="if">wenn</keyword>
+        <keyword key="elif">sonst_wenn</keyword>
+        <keyword key="else">sonst</keyword>
+        <keyword key="and">und</keyword>
+        <keyword key="import">einfuhr</keyword>
+    </keywords>
+    <functions>
+        <function name='print'>bereich</function>
+        <function name='range'>ausgeben</function>
+    </functions>
 </localization>
